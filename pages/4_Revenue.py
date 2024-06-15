@@ -12,7 +12,7 @@ file_path_main = os.path.join(os.path.dirname(__file__), '..', 'main.cav')
 
 
 # CSV 파일 로드
-df = pd.read_csv('file_path_mainv')
+df = pd.read_csv('file_path_main')
 day_df = pd.read_csv('file_path_daily')
 day_df['event_date'] = pd.to_datetime(day_df['event_date'], errors='coerce')
 user_df = pd.read_csv('file_path_user')
