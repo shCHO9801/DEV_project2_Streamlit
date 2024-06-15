@@ -5,18 +5,6 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import os
 
-# # 로컬 CSV 파일 경로 지정
-# file_path_daily = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
-# file_path_user = os.path.join(os.path.dirname(__file__), '..', 'user_new.csv')
-
-# file_path_main = os.path.join(os.path.dirname(__file__), '..', 'main.csv')
-
-# # CSV 파일 로드
-# df = pd.read_csv('file_path_main')
-# day_df = pd.read_csv('file_path_daily')
-# day_df['event_date'] = pd.to_datetime(day_df['event_date'], errors='coerce')
-# user_df = pd.read_csv('file_path_user')
-
 # 로컬 CSV 파일 경로 지정
 file_path_main = os.path.join(os.path.dirname(__file__), '..', 'main.csv')
 file_path_daily = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
