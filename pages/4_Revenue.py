@@ -3,12 +3,19 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+import os
+
+# 로컬 CSV 파일 경로 지정
+file_path_daily = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
+file_path_user = os.path.join(os.path.dirname(__file__), '..', 'user_new.csv')
+file_path_main = os.path.joon(os.path.dirname(__file__), '..', 'main.cav')
+
 
 # CSV 파일 로드
-df = pd.read_csv('../main.csv')
-day_df = pd.read_csv('../daily.csv')
+df = pd.read_csv('file_path_mainv')
+day_df = pd.read_csv('file_path_daily')
 day_df['event_date'] = pd.to_datetime(day_df['event_date'], errors='coerce')
-user_df = pd.read_csv('../user.csv')
+user_df = pd.read_csv('file_path_user')
 
 day_revenue = day_df[['event_date', 'total_purchase_amount', 'purchase_conversion_rate', 'ARPU', 'ARPS', 'high_brand_daily', 'AOV']]
 user_revenue = user_df[['user_id', 'total_spending', 'most_main_purchase', 'most_sub_purchase', 'most_sub_sub_purchase']]
