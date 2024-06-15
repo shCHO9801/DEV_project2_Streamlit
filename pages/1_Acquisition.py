@@ -5,11 +5,9 @@ import plotly.graph_objects as go
 import os
 
 # 로컬 CSV 파일 경로 지정
-file_path3 = 'DEV_project2_Streamlit/daily.csv'
 file_path2 = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
 
 # CSV 파일 로드
-# daily_df = pd.read_csv(file_path3)
 daily_df = pd.read_csv(file_path2)
 daily_df['event_date'] = pd.to_datetime(daily_df['event_date'])
 
