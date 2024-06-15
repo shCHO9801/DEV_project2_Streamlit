@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import os
 
 # 로컬 CSV 파일 경로 지정
 file_path_daily = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
