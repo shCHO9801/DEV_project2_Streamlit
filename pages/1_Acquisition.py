@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # 로컬 CSV 파일 경로 지정
-file_path2 = '.../daily.csv'
+file_path2 = '../daily.csv'
 
 # CSV 파일 로드
 daily_df = pd.read_csv(file_path2)
