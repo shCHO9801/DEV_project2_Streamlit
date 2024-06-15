@@ -5,10 +5,10 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
 # CSV 파일 로드
-df = pd.read_csv('/Users/sunghyuncho/Desktop/2차 프로젝트/streamlit/main.csv')
-day_df = pd.read_csv('/Users/sunghyuncho/Desktop/2차 프로젝트/streamlit/daily.csv')
+df = pd.read_csv('.../main.csv')
+day_df = pd.read_csv('.../daily.csv')
 day_df['event_date'] = pd.to_datetime(day_df['event_date'], errors='coerce')
-user_df = pd.read_csv('/Users/sunghyuncho/Desktop/2차 프로젝트/streamlit/user.csv')
+user_df = pd.read_csv('.../user.csv')
 
 day_revenue = day_df[['event_date', 'total_purchase_amount', 'purchase_conversion_rate', 'ARPU', 'ARPS', 'high_brand_daily', 'AOV']]
 user_revenue = user_df[['user_id', 'total_spending', 'most_main_purchase', 'most_sub_purchase', 'most_sub_sub_purchase']]
