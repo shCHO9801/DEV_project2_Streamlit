@@ -4,14 +4,16 @@ import plotly.express as px
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import numpy as np
+import os
 
 # 로컬 CSV 파일 경로 지정
-file_path1 = '../daily.csv'
-file_path2 = '../user_new.csv'
+file_path_daily = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
+file_path_user = os.path.join(os.path.dirname(__file__), '..', 'user_new.csv')
+
 
 # CSV 파일 로드
-day_df = pd.read_csv(file_path1)
-user_df = pd.read_csv(file_path2)
+day_df = pd.read_csv(file_path_daily)
+user_df = pd.read_csv(file_path_user)
 
 # 날짜 변환
 day_df['event_date'] = pd.to_datetime(day_df['event_date'])
