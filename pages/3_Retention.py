@@ -6,8 +6,8 @@ from plotly.subplots import make_subplots
 import numpy as np
 
 # 로컬 CSV 파일 경로 지정
-file_path1 = '.../daily.csv'
-file_path2 = '.../user_new.csv'
+file_path1 = '../daily.csv'
+file_path2 = '../user_new.csv'
 
 # CSV 파일 로드
 day_df = pd.read_csv(file_path1)
