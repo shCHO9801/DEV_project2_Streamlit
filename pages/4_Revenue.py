@@ -8,7 +8,7 @@ import os
 # 로컬 CSV 파일 경로 지정
 file_path_daily = os.path.join(os.path.dirname(__file__), '..', 'daily.csv')
 file_path_user = os.path.join(os.path.dirname(__file__), '..', 'user_new.csv')
-file_path_main = os.path.joon(os.path.dirname(__file__), '..', 'main.cav')
+file_path_main = os.path.join(os.path.dirname(__file__), '..', 'main.cav')
 
 
 # CSV 파일 로드
