@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 
 # 로컬 CSV 파일 경로 지정
-file_path = '/Users/sunghyuncho/Desktop/2차 프로젝트/streamlit/user.csv'
-file_path2 = '/Users/sunghyuncho/Desktop/2차 프로젝트/streamlit/daily.csv'
+file_path = 'user_new.csv'
+file_path2 = 'daily.csv'
 
 # CSV 파일 로드
 user_df = pd.read_csv(file_path)
