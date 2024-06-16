@@ -1,1 +1,29 @@
-# DEV_project2_Streamlit
+# 프로젝트 설명
+- 파이썬 기반 데이터 시각화
+- 주제 : 전자 제품 Ecommerce Data 대시보드 제작
+	- Data : https://www.kaggle.com/datasets/mkechinov/ecommerce-events-history-in-electronics-store
+- 목표
+  - Pandas를 활용한 EDA
+  - AARRR 프레임워크 기반 비지니스 지표 설계 및 추출
+  - 비지니스 지표를 활용한 자료 시각화
+  - Streamlit을 활용한 대시보드 제작
+# 파일 설명
+- 01.EDA
+	- 각 팀원별 EDA jupyter notebook
+- 02.지표설계(일자별)
+	- AARRR프레임워크 기반 일자별 지표설계 jupyter notebook
+- 03.지표설계(유저별)
+	- AARRR 프레임워크 기반 유저별 지표설계 jupyter notebook
+- 04.시각화
+	- 각 파트별 시각화 결과
+- Streamlit
+	- main.csv : kaggle Ecommers data set 
+	- user.csv : 유저별 지표설계 데이터셋
+  - daily.csv : 일자별 지표설계 데이터셋
+  - requirements.txt : Streamlit 로드시 import할 라이브러리 버전
+  - app.py : streamlit 메인 페이지
+  - pages : 하위 페이지 디렉토리
+ 	- 1_Acqusition.py : Acqusition part page py
+	- 2_Avtivation.py : Activation part page py
+	- 3_Retention.py : Retention part page py
+	- 4_Revenue.py : Revenue part page py
