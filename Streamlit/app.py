@@ -6,10 +6,6 @@ import os
 file_path = os.path.join(os.path.dirname(__file__), 'user_new.csv')
 file_path2 = os.path.join(os.path.dirname(__file__), 'daily.csv')
 
-# 로컬 CSV 파일 경로 지정
-#file_path = 'user_new.csv'
-#file_path2 = 'daily.csv'
-
 # CSV 파일 로드
 user_df = pd.read_csv(file_path)
 daily_df = pd.read_csv(file_path2)
