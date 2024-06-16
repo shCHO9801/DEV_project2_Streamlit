@@ -41,7 +41,7 @@ def plot_combined_metrics(df):
     return fig
 
 # 페이지 설정
-st.title("획득(Acquisition) 지표")
+st.title("유입(Acquisition) 지표")
 
 # 차트 선택
 metric_selection = st.selectbox("시각화할 지표를 선택하세요", ["DAU", "DAS", "DAU와 DAS"])
