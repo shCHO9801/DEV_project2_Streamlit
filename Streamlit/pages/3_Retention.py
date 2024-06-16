@@ -335,7 +335,7 @@ fig_blues = px.density_heatmap(heatmap_data, x='days_since_first_visit', y='days
                                color_continuous_scale='Blues')
 
 # 페이지 설정
-st.title("리텐션(Retention) 지표")
+st.title("재방문(Retention) 지표")
 
 # 차트 선택
 metrics = [
