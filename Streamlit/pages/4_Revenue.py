@@ -21,7 +21,7 @@ user_revenue = user_df[['user_id', 'total_spending', 'most_main_purchase', 'most
 user_pro = user_df[(user_df['most_main_purchase'] != 0) & (user_df['most_sub_purchase'] != 0) & (user_df['most_sub_sub_purchase'] != 0)]
 
 # 페이지 제목
-st.title("4. Revenue Analysis")
+st.title("수익(Revenue) 지표")
 st.write("날짜 별 수익 지표")
 
 # 데이터 프레임 요약
