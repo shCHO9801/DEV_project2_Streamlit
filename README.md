@@ -7,16 +7,16 @@
   - AARRR 프레임워크 기반 비지니스 지표 설계 및 추출
   - 비지니스 지표를 활용한 자료 시각화
   - Streamlit을 활용한 대시보드 제작
-  - 
+    
 # Streamlit URL
 - https://devproject2-5hewec4suatz5wbo5ugv95.streamlit.app/
-- 
+  
 # Role
 - 김상준: 활성화, 수익 지표 설계 / 유입 대시보드 제작
 - 문규림: 유입, 재방문 지표 설계 / 수익 대시보드 제작
 - 조성현: 유입, 수익 지표 설계 / 활성화 대시보드 제작
 - 복선혜: 활성화, 재방문 지표 설계 / 재방문 대시보드 제작
-- 
+  
 # 파일 설명
 - 01.EDA
 	- 각 팀원별 EDA jupyter notebook
