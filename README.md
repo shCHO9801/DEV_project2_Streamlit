@@ -1,6 +1,6 @@
 # 프로젝트 설명
 - 파이썬 기반 데이터 시각화
-- 주제 : 전자 제품 Ecommerce Data 대시보드 제작
+- 주제 : Electronic Stores Ecommerce 로그 데이터를 활용한 AARRR 기반 비즈니스 지표 설계 및 대시보드 개발
 	- Data : https://www.kaggle.com/datasets/mkechinov/ecommerce-events-history-in-electronics-store
 - 목표
   - Pandas를 활용한 EDA
