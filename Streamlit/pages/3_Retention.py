@@ -154,7 +154,7 @@ heatmap_data = heatmap_data.reset_index().melt(id_vars='days_since_first_visit')
 
 fig_blues = px.density_heatmap(heatmap_data, x='days_since_first_visit', y='days_since_last_event', z='value',
                                title='Retention Rate Trend Over Time',
-                               labels={'days_since_first_visit': '가입 기간(일)', 'days_since_last_event': '마지막 접속 후 경과 일수(일)', 'value': 'Count'},
+                               labels={'days_since_first_visit': '가입 기간(일)', 'days_since_last_event': '미방문 기간(일)', 'value': 'Count'},
                                color_continuous_scale='Blues')
 
 # 페이지 설정
