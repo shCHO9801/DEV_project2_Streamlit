@@ -65,6 +65,7 @@ fig2 = create_retention_figure(dates, purchase_retention_data, 'Purchase Retenti
 def create_retention_diff_figure(df, diff_columns, title, yaxis_title):
     fig = go.Figure()
     colors = ['rgba(255, 204, 0, 0.6)', 'rgba(34, 139, 34, 0.6)', 'rgba(26, 118, 255, 0.6)']
+    new_colors = ['rgba(34, 139, 34, 0.6)', 'rgba(26, 118, 255, 0.6)', 'rgba(255, 204, 0, 0.6)']
     names = ['7d to 30d Diff', '1d to 3d Diff', '3d to 7d Diff']
     new_names = ['1d to 3d Diff', '3d to 7d Diff', '7d to 30d Diff']
     legendgroups = ['1', '2', '3']
@@ -81,7 +82,7 @@ def create_retention_diff_figure(df, diff_columns, title, yaxis_title):
         ))
 
     # 각 그룹에 대한 레전드 순서 변경
-    for name, color, group in zip(new_names, colors, new_legendgroups):
+    for name, color, group in zip(new_names, new_colors, new_legendgroups):
         fig.add_trace(go.Bar(
             x=[None],
             y=[None],
