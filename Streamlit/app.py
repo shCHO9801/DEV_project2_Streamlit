@@ -120,5 +120,5 @@ st.write("")
 st.write("유저별 비즈니스 지표")
 st.dataframe(user_,height=200)
 
-st.wirte("일자별 비즈니스 지표")
+st.write("일자별 비즈니스 지표")
 st.dataframe(day_, height=200)
