@@ -70,3 +70,49 @@ st.write("#### 사용자 데이터 통계")
 st.write(user_df.describe())
 st.write("#### 일별 데이터 통계")
 st.write(daily_df.describe())
+
+# 지표 설명을 위한 테이블 생성
+# 가장 앞쪽에 추가
+
+user = {
+    'KPI': ['first_visit', 'total_session_cnt', 'total_visit_cnt', 'view_count', 
+               'cart_count', 'purchase_count', 'last_event_time', 'days_since_first_visit', 
+               'total_session_duration', 'avg_session_duration', 'total_spending', 
+               'min_spending', 'max_spending', 'most_main_purchase', 'most_sub_purchase', 
+               'most_sub_sub_purchase'],
+               
+    'Description': ['유저 첫 방문일', '유저별 누적 세션 수', '유저별 방문일 수', '유저별 view 이벤트 수', 
+                    '유저별 cart 이벤트 수', '유저별 purchase 이벤트 수', '유저가 마지막으로 발생시킨 이벤트의 시간', 
+                    '유저 첫 방문일로부터 지난 시간', '유저별 총 체류 시간', '유저별 평균 체류 시간', '유저별 누적 소비액', 
+                    '유저별 최소 소비액', '유저별 최대 소비액', '유저별 가장 많이 구입한 주요 카테고리', 
+                    '유저별 가장 많이 구입한 하위 카테고리', '유저별 가장 많이 구입한 세부 카테고리']
+}
+
+user_ = pd.DataFrame(user, columns=['KPI', 'Description'])
+
+day = {
+    'KPI': ['first_visit', 'total_session_cnt', 'total_visit_cnt', 'view_count', 'cart_count', 
+               'purchase_count', 'last_event_time', 'days_since_first_visit', 'total_session_duration', 
+               'avg_session_duration', 'total_spending', 'min_spending', 'max_spending', 
+               'most_main_purchase', 'most_sub_purchase', 'most_sub_sub_purchase', 
+               'DAU', 'DAS', 'sessions_per_user', 'unique_view_sessions', 'unique_cart_sessions', 
+               'unique_purchase_sessions', 'unique_view_users', 'unique_cart_users', 
+               'unique_purchase_users', 'total_purchase_amount', 'purchase_conversion_rate', 
+               'ARPU', 'ARPS', 'high_brand_daily', 'AOV'],
+               
+    'Description': ['일자별 첫 방문일', '일자별 누적 세션 수', '일자별 방문일 수', '일자별 view 이벤트 수', 
+                    '일자별 cart 이벤트 수', '일자별 purchase 이벤트 수', '일자별 마지막으로 발생시킨 이벤트의 시간', 
+                    '첫 방문일로부터 지난 시간', '일자별 총 체류 시간', '일자별 평균 체류 시간', '일자별 누적 소비액', 
+                    '일자별 최소 소비액', '일자별 최대 소비액', '일자별 가장 많이 구입한 주요 카테고리', 
+                    '일자별 가장 많이 구입한 하위 카테고리', '일자별 가장 많이 구입한 세부 카테고리', 
+                    'Daily Active Users (일일 활성 사용자 수)', 'Daily Active Sessions (일일 활성 세션 수)', 
+                    '사용자당 평균 세션 수', '일자별 고유 view 세션 수', '일자별 고유 cart 세션 수', 
+                    '일자별 고유 purchase 세션 수', '일자별 고유 view 사용자 수', '일자별 고유 cart 사용자 수', 
+                    '일자별 고유 purchase 사용자 수', '일자별  총 구매 금액', '일자별 구매 전환율', 
+                    '일자별 사용자당 평균 매출', '일자별 세션당 평균 매출', '일자별 최고 브랜드', '일자별 평균 주문 금액']
+}
+
+day_ = pd.DataFrame(day, columns=['KPI', 'Description'])
+
+st.dataframe(user_,height=200)
+st.dataframe(day_, height=200)
