@@ -176,7 +176,7 @@ fig_blues.update_traces(line=dict(color='rgba(55, 83, 109, 0.6)'))
 fig_blues.add_annotation(
     xref='paper', yref='paper', x=0.0, y=-0.31,
     showarrow=False, text='* 데이터에 가입일 및 탈퇴일은 명시되어 있지 않았으나, user_id별 첫 user_session 발생일을 가입일이라 가정<br>'
-                            '* 가입일 이후 재방문이 일어나지 않은 경우, 이탈로 간주',
+                            '* 마지막 방문 이후 재방문이 일어나지 않은 경우, 이탈로 간주',
     font=dict(size=12),
     align='left',
     xanchor='left'
