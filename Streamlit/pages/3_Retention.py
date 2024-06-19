@@ -141,22 +141,46 @@ fig3 = create_retention_diff_figure(retention_diff_df, ['7d_to_30d_diff', '1d_to
 fig4 = create_retention_diff_figure(purchase_retention_diff_df, ['7d_to_30d_diff', '1d_to_3d_diff', '3d_to_7d_diff'], 'Purchase Retention Rate Differences Over Time', 'Purchase Retention Rate Difference (%)')
 
 # fig 5
-filtered_data = user_df.dropna(subset=['last_event_time', 'first_visit'])
+# NaN 값 제거 및 계산
+filtered_data = user_df.dropna(subset=['last_event_time'])
 max_event_time = filtered_data['last_event_time'].max()
 filtered_data['days_since_last_event'] = (max_event_time - filtered_data['last_event_time']).dt.days
-filtered_data['days_since_first_visit'] = (max_event_time - filtered_data['first_visit']).dt.days
-filtered_data = filtered_data.dropna(subset=['days_since_last_event', 'days_since_first_visit'])
+filtered_data['days_since_first_visit'] = user_df['days_since_first_visit']
 filtered_data = filtered_data[filtered_data['days_since_last_event'] != float('inf')]
-filtered_data = filtered_data[filtered_data['days_since_first_visit'] != float('inf')]
-filtered_data = filtered_data[(filtered_data['days_since_last_event'] != 0) & (filtered_data['days_since_first_visit'] != 0)]
 
-heatmap_data = filtered_data.pivot_table(index='days_since_first_visit', columns='days_since_last_event', aggfunc='size', fill_value=0)
-heatmap_data = heatmap_data.reset_index().melt(id_vars='days_since_first_visit')
+# 가입자 수 계산
+user_counts = filtered_data.groupby('days_since_first_visit')['user_id'].nunique().reset_index()
+user_counts.rename(columns={'user_id': 'total_users'}, inplace=True)
 
-fig_blues = px.density_heatmap(heatmap_data, x='days_since_first_visit', y='days_since_last_event', z='value',
-                               title='Retention Rate Trend Over Time',
-                               labels={'days_since_first_visit': '가입 기간(일)', 'days_since_last_event': '미방문 기간(일)', 'value': 'Count'},
-                               color_continuous_scale='Blues')
+# 이탈한 사용자 수 계산
+churn_counts = filtered_data.groupby(['days_since_first_visit', 'days_since_last_event'])['user_id'].nunique().reset_index()
+churn_counts.rename(columns={'user_id': 'churned_users'}, inplace=True)
+
+# Churn rate 계산
+churn_rate_data = pd.merge(churn_counts, user_counts, on='days_since_first_visit')
+churn_rate_data['churn_rate'] = churn_rate_data['churned_users'] / churn_rate_data['total_users'] * 100
+
+first_day_mask = churn_rate_data['days_since_first_visit'] == churn_rate_data['days_since_last_event']
+chart_data = churn_rate_data[first_day_mask]
+chart_data = chart_data.iloc[1:,:]
+
+# 히트맵 시각화
+fig_blues = px.line(chart_data, x='days_since_first_visit', y='churn_rate',
+                    title='가입 기간별 가입 당일 이탈률(Churn Rate)',
+                    labels={'days_since_first_visit': '가입 기간(일)', 'days_since_last_event': '미방문 기간(일)', 'churn_rate': 'Churn Rate(%)'})
+
+# 라인의 색상 설정
+fig_blues.update_traces(line=dict(color='rgba(55, 83, 109, 0.6)'))
+
+# 추가 설명 추가
+fig_blues.add_annotation(
+    xref='paper', yref='paper', x=0.0, y=-0.31,
+    showarrow=False, text='* 데이터에 가입일 및 탈퇴일은 명시되어 있지 않았으나, user_id별 첫 user_session 발생일을 가입일이라 가정<br>'
+                            '* 가입일 이후 재방문이 일어나지 않은 경우, 이탈로 간주',
+    font=dict(size=12),
+    align='left',
+    xanchor='left'
+)
 
 # 페이지 설정
 st.title("리텐션(Retention) 지표")
